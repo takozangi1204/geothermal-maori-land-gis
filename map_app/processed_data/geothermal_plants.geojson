@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "geothermal_plants",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "Ohaaki", "operator": "Contact Energy", "capacity_mw": 44, "type": "Flash", "easting": 1887145, "northing": 5730689, "lon": 176.293797, "lat": -38.525896 }, "geometry": { "type": "Point", "coordinates": [ 176.29379694016589, -38.525896004228848 ] } },
+{ "type": "Feature", "properties": { "name": "Ngatamariki", "operator": "Mercury NZ", "capacity_mw": 132, "type": "Binary", "easting": 1878510, "northing": 5728660, "lon": 176.1957, "lat": -38.546896 }, "geometry": { "type": "Point", "coordinates": [ 176.195699610208123, -38.546896284837707 ] } },
+{ "type": "Feature", "properties": { "name": "Tauhara", "operator": "Contact Energy", "capacity_mw": 174, "type": "Triple Flash", "easting": 1874682, "northing": 5715567, "lon": 176.157001, "lat": -38.665901 }, "geometry": { "type": "Point", "coordinates": [ 176.157001397997107, -38.66590094438704 ] } },
+{ "type": "Feature", "properties": { "name": "Nga Awa Purua", "operator": "Mercury NZ / Tauhara North No.2 Trust", "capacity_mw": 140, "type": "Triple Flash", "easting": 1877209, "northing": 5721337, "lon": 176.183703, "lat": -38.613196 }, "geometry": { "type": "Point", "coordinates": [ 176.183703468535356, -38.613195543529017 ] } },
+{ "type": "Feature", "properties": { "name": "Wairakei", "operator": "Contact Energy", "capacity_mw": 132, "type": "Flash / Binary", "easting": 1870195, "northing": 5720210, "lon": 176.103697, "lat": -38.6255 }, "geometry": { "type": "Point", "coordinates": [ 176.10369727763711, -38.625500254199693 ] } },
+{ "type": "Feature", "properties": { "name": "Mokai", "operator": "Tuaropaki Trust / Mercury NZ", "capacity_mw": 113, "type": "Combined Cycle (Steam + Binary)", "easting": 1855082, "northing": 5731196, "lon": 175.9263, "lat": -38.5311 }, "geometry": { "type": "Point", "coordinates": [ 175.9263, -38.5311 ] } }
+]
+}
