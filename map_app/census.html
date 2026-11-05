@@ -251,40 +251,250 @@
             margin-bottom: 12px;
             display: none;
         }
-        /* 5-Line Summary Box (Exact Report Format, Large & Easy to Read) */
+        /* Visual Demographic & Commuter Summary Dashboard */
         .summary-box {
             background: #f8fafc;
             border: 1.5px solid #cbd5e1;
-            border-radius: 8px;
-            padding: 14px 16px;
-            font-size: 14px;
-            line-height: 1.85;
+            border-radius: 10px;
+            padding: 12px 14px;
             color: #0f172a;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
         }
-        .summary-line {
-            margin-bottom: 4px;
+        .kpi-strip {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 8px;
+            width: 100%;
         }
-        .summary-line:last-child {
-            margin-bottom: 0;
+        .kpi-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 8px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+            min-width: 0;
         }
-        .origin-pill {
-            display: inline-block;
-            background: #e0f2fe;
-            color: #0369a1;
-            border: 1px solid #7dd3fc;
-            border-radius: 5px;
-            padding: 1px 7px;
-            margin: 2px 3px;
-            font-size: 13px;
+        .kpi-label {
+            font-size: 11px;
             font-weight: 700;
-            cursor: pointer;
-            transition: all 0.15s;
+            color: #475569;
+            margin-bottom: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .origin-pill:hover {
-            background: #0284c7;
-            color: #ffffff;
-            border-color: #0284c7;
+        .kpi-val {
+            font-size: 18.5px;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.15;
+            letter-spacing: -0.3px;
+        }
+        .kpi-sub {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 4px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .maori-bars-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-top: 2px;
+        }
+        .maori-bar-row {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .maori-bar-head {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            font-weight: 700;
+            color: #1e293b;
+            white-space: nowrap;
+        }
+        .maori-bar-track {
+            width: 100%;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .maori-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+        /* Stack the two demographic/commuter donut charts vertically so they fit 100% within the allocated width */
+        .demo-charts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            width: 100%;
+        }
+        .demo-chart-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px 14px;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .demo-chart-card h4 {
+            margin: 0 0 6px 0;
+            font-size: 13px;
+            font-weight: 800;
+            color: #1e293b;
+            text-align: left;
+        }
+        .demo-donut-row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 18px;
+            width: 100%;
+            min-width: 0;
+        }
+        .demo-legend-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 1;
+            min-width: 0;
+        }
+        .demo-legend-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12.5px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #f1f5f9;
+            gap: 8px;
+        }
+        .demo-legend-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .demo-legend-left {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #1e293b;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .demo-legend-val {
+            font-weight: 800;
+            color: #0f172a;
+            white-space: nowrap;
+            margin-left: auto;
+        }
+        .inflow-chart-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px 14px;
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+        .inflow-chart-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .inflow-chart-header h4 {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 800;
+            color: #1e293b;
+        }
+        .inflow-chart-sub {
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 600;
+        }
+        .inflow-bars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 5px 12px;
+            max-height: 185px;
+            overflow-y: auto;
+            padding-right: 4px;
+            width: 100%;
+        }
+        .inflow-bar-item {
+            display: grid;
+            grid-template-columns: minmax(105px, 1.2fr) 1fr auto;
+            align-items: center;
+            gap: 7px;
+            padding: 4px 7px;
+            border-radius: 6px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.14s ease;
+            font-size: 12px;
+        }
+        .inflow-bar-item:hover {
+            background: #eff6ff;
+            border-color: #6b8ead;
+            transform: translateY(-1px);
+        }
+        .inflow-bar-name {
+            font-weight: 700;
+            color: #1e3a8a;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .inflow-bar-track {
+            width: 100%;
+            height: 9px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .inflow-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #6b8ead 0%, #4a6fa5 100%);
+            border-radius: 4px;
+        }
+        .inflow-bar-count {
+            font-weight: 800;
+            color: #0f172a;
+            font-size: 11.5px;
+            white-space: nowrap;
+            text-align: right;
+            min-width: 34px;
+        }
+        @media (max-width: 900px) {
+            .kpi-strip {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .demo-charts-grid {
+                grid-template-columns: 1fr;
+            }
         }
         /* Side-by-Side Pie Charts Grid */
         .pies-grid {
@@ -1345,6 +1555,65 @@ function renderPieAndTable(items, svgContainerId, tableContainerId) {
     `;
 }
 
+// Helper to render a clean, muted SVG Donut / Pie Chart for Demographic & Commuter Summary Cards
+function buildMiniDonutSvg(slices, centerTopText, centerSubText) {
+    const size = 116;
+    const cx = size / 2;
+    const cy = size / 2;
+    const r = 50;
+    const innerR = 28;
+    const total = slices.reduce((acc, s) => acc + Math.max(0, s.val), 0);
+    if (total <= 0) {
+        return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+            <circle cx="${cx}" cy="${cy}" r="${r}" fill="#e2e8f0" />
+            <circle cx="${cx}" cy="${cy}" r="${innerR}" fill="#ffffff" />
+            <text x="${cx}" y="${cy}" text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="700" fill="#64748b">N/A</text>
+        </svg>`;
+    }
+
+    let currentAngle = -Math.PI / 2;
+    let pathsHtml = '';
+    let labelsHtml = '';
+
+    slices.forEach((s) => {
+        const val = Math.max(0, s.val);
+        const frac = val / total;
+        const angle = frac * 2 * Math.PI;
+        const endAngle = currentAngle + angle;
+
+        if (frac >= 0.999) {
+            pathsHtml += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${s.color}" stroke="#ffffff" stroke-width="2"><title>${s.label}: ${s.display}</title></circle>`;
+        } else if (angle > 0.001) {
+            const x1 = cx + r * Math.cos(currentAngle);
+            const y1 = cy + r * Math.sin(currentAngle);
+            const x2 = cx + r * Math.cos(endAngle);
+            const y2 = cy + r * Math.sin(endAngle);
+            const largeArc = angle > Math.PI ? 1 : 0;
+            const d = `M ${cx} ${cy} L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 ${largeArc} 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z`;
+            pathsHtml += `<path d="${d}" fill="${s.color}" stroke="#ffffff" stroke-width="2"><title>${s.label}: ${s.display}</title></path>`;
+        }
+
+        if (frac >= 0.08) {
+            const mid = currentAngle + angle / 2;
+            const lr = (r + innerR) / 2;
+            const lx = cx + lr * Math.cos(mid);
+            const ly = cy + lr * Math.sin(mid);
+            const slicePctStr = s.pctText || `${(frac * 100).toFixed(1)}%`;
+            labelsHtml += `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central" style="pointer-events:none; paint-order:stroke; stroke:rgba(255,255,255,0.92); stroke-width:2.8px; stroke-linejoin:round;">${slicePctStr}</text>`;
+        }
+
+        currentAngle = endAngle;
+    });
+
+    const centerHtml = `
+        <circle cx="${cx}" cy="${cy}" r="${innerR}" fill="#ffffff" />
+        <text x="${cx}" y="${cy - 4}" text-anchor="middle" dominant-baseline="central" font-size="11.5" font-weight="800" fill="#0f172a">${centerTopText}</text>
+        <text x="${cx}" y="${cy + 8}" text-anchor="middle" dominant-baseline="central" font-size="9" font-weight="700" fill="#64748b">${centerSubText}</text>
+    `;
+
+    return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="flex-shrink:0;">${pathsHtml}${labelsHtml}${centerHtml}</svg>`;
+}
+
 function updateReportSheet() {
     const feat = sa2FeatureByCode[selectedSA2Code];
     if (!feat) return;
@@ -1365,33 +1634,165 @@ function updateReportSheet() {
         plantBanner.style.display = 'none';
     }
 
-    let originsHtml = '';
+    const isJa = (LANG === 'ja');
+    const unitP = isJa ? '人' : '';
+
+    // 1. Age Structure Donut Chart (Muted Palette: Sage Green, Slate Blue, Warm Ochre)
+    const ageSlices = [
+        {
+            label: isJa ? '年少人口 (0–14歳)' : 'Youth (0–14 yrs)',
+            val: p.age_0_14_pct,
+            pctText: `${p.age_0_14_pct.toFixed(1)}%`,
+            display: `${p.age_0_14_pct.toFixed(1)}%`,
+            color: '#7ba68a'
+        },
+        {
+            label: isJa ? '生産年齢人口 (15–64歳)' : 'Working Age (15–64 yrs)',
+            val: p.age_15_64_pct,
+            pctText: `${p.age_15_64_pct.toFixed(1)}%`,
+            display: `${p.age_15_64_pct.toFixed(1)}%`,
+            color: '#6b8ead'
+        },
+        {
+            label: isJa ? '老年人口 (65歳以上)' : 'Seniors (65+ yrs)',
+            val: p.age_65_plus_pct,
+            pctText: `${p.age_65_plus_pct.toFixed(1)}%`,
+            display: `${p.age_65_plus_pct.toFixed(1)}%`,
+            color: '#d9a473'
+        }
+    ];
+    const ageDonutSvg = buildMiniDonutSvg(
+        ageSlices,
+        `${p.median_age.toFixed(1)}${isJa ? '歳' : 'y'}`,
+        isJa ? '年齢中央値' : 'Median Age'
+    );
+    const ageLegendHtml = ageSlices.map(s => `
+        <div class="demo-legend-item">
+            <span class="demo-legend-left"><span class="ind-swatch" style="background:${s.color}; border:1px solid rgba(15,23,42,0.18);"></span>${s.label}</span>
+            <span class="demo-legend-val">${s.display}</span>
+        </div>
+    `).join('');
+
+    // 2. Commuter Flow Donut Chart (Internal vs External Inflow)
+    const internalPct = p.commute_base > 0 ? (p.commute_internal / p.commute_base * 100.0) : 0.0;
+    const inflowPct = p.commute_base > 0 ? p.commute_inflow_pct : 0.0;
+    const commuteSlices = [
+        {
+            label: isJa ? '域外流入 (通勤流入)' : 'External Inflow',
+            val: p.commute_inflow,
+            pctText: `${inflowPct.toFixed(1)}%`,
+            display: `${p.commute_inflow.toLocaleString()}${unitP} (${inflowPct.toFixed(1)}%)`,
+            color: '#c98484'
+        },
+        {
+            label: isJa ? '居住地内 (域内就業)' : 'Local / Internal',
+            val: p.commute_internal,
+            pctText: `${internalPct.toFixed(1)}%`,
+            display: `${p.commute_internal.toLocaleString()}${unitP} (${internalPct.toFixed(1)}%)`,
+            color: '#6b8ead'
+        }
+    ];
+    const commuteDonutSvg = buildMiniDonutSvg(
+        commuteSlices,
+        `${p.commute_base.toLocaleString()}${unitP}`,
+        isJa ? '通勤流動計' : 'Flow Base'
+    );
+    const commuteLegendHtml = commuteSlices.map(s => `
+        <div class="demo-legend-item">
+            <span class="demo-legend-left"><span class="ind-swatch" style="background:${s.color}; border:1px solid rgba(15,23,42,0.18);"></span>${s.label}</span>
+            <span class="demo-legend-val">${s.display}</span>
+        </div>
+    `).join('') + `
+        <div class="demo-legend-item" style="margin-top:2px; padding-top:4px; border-top:1px dashed #cbd5e1;">
+            <span class="demo-legend-left" style="color:#475569;">${isJa ? '勤務地就業者総数 (全体)' : 'Total Workplace Employed'}</span>
+            <span class="demo-legend-val">${p.work_emp_total.toLocaleString()}${unitP}</span>
+        </div>
+    `;
+
+    // 3. Ranked Horizontal Bar Chart for Commuter Inflow Origins
+    let originsBarChartHtml = '';
     if (p.inflow_origins && p.inflow_origins.length > 0) {
-        originsHtml = p.inflow_origins.map(o =>
-            `<span class="origin-pill" onclick="selectSA2('${o.code}', true)" title="SA2 ${o.code}">${o.name} (${o.count})</span>`
-        ).join(' ');
+        const maxOriginCount = Math.max(...p.inflow_origins.map(o => o.count), 1);
+        const totalInflow = Math.max(p.commute_inflow, 1);
+        const barsHtml = p.inflow_origins.map((o, idx) => {
+            const widthPct = Math.max(6, Math.round((o.count / maxOriginCount) * 100));
+            const shareOfInflow = ((o.count / totalInflow) * 100).toFixed(1);
+            return `
+                <div class="inflow-bar-item" onclick="selectSA2('${o.code}', true)" title="${o.name} (SA2 ${o.code}): ${o.count}${unitP} (${shareOfInflow}% of inflow)">
+                    <span class="inflow-bar-name">${idx + 1}. ${o.name}</span>
+                    <div class="inflow-bar-track">
+                        <div class="inflow-bar-fill" style="width:${widthPct}%;"></div>
+                    </div>
+                    <span class="inflow-bar-count">${o.count}${unitP}</span>
+                </div>
+            `;
+        }).join('');
+        originsBarChartHtml = `<div class="inflow-bars-grid">${barsHtml}</div>`;
     } else {
-        originsHtml = `<span style="color:#64748b;">${I18N.none_inflow}</span>`;
+        originsBarChartHtml = `<div style="color:#64748b; font-size:12.5px; padding:4px 0;">${I18N.none_inflow}</div>`;
     }
 
     const summaryBox = document.getElementById('rpt-summary-box');
-    if (LANG === 'ja') {
-        summaryBox.innerHTML = `
-            <div class="summary-line">■ <strong>人口総数 (通常居住人口):</strong> ${p.pop_usual.toLocaleString()}人 / <strong>夜間人口総数:</strong> ${p.pop_night.toLocaleString()}人 / <strong>年齢中央値:</strong> ${p.median_age.toFixed(1)}歳</div>
-            <div class="summary-line">■ <strong>年齢構造:</strong> 年少(0-14歳) ${p.age_0_14_pct.toFixed(1)}% | 生産年齢(15-64歳) ${p.age_15_64_pct.toFixed(1)}% | 高齢(65歳以上) ${p.age_65_plus_pct.toFixed(1)}%</div>
-            <div class="summary-line">■ <strong>Māori 民族割合:</strong> ${p.maori_eth_pct.toFixed(1)}% / <strong>Māori 血統保有率:</strong> ${p.maori_desc_pct.toFixed(1)}%</div>
-            <div class="summary-line">■ <strong>就業者総数:</strong> ${p.work_emp_total.toLocaleString()}人 / <strong>通勤流動ベース:</strong> ${p.commute_base.toLocaleString()}人 (居住地内: ${p.commute_internal.toLocaleString()}人, 域外流入: ${p.commute_inflow.toLocaleString()}人, 域外流入率: ${p.commute_inflow_pct.toFixed(1)}%)</div>
-            <div class="summary-line">■ <strong>流入元地域:</strong> ${originsHtml}</div>
-        `;
-    } else {
-        summaryBox.innerHTML = `
-            <div class="summary-line">■ <strong>Usual Resident Pop:</strong> ${p.pop_usual.toLocaleString()} / <strong>Night Pop:</strong> ${p.pop_night.toLocaleString()} / <strong>Median Age:</strong> ${p.median_age.toFixed(1)} yrs</div>
-            <div class="summary-line">■ <strong>Age Structure:</strong> Youth (0–14 yrs) ${p.age_0_14_pct.toFixed(1)}% | Working Age (15–64 yrs) ${p.age_15_64_pct.toFixed(1)}% | Seniors (65+ yrs) ${p.age_65_plus_pct.toFixed(1)}%</div>
-            <div class="summary-line">■ <strong>Māori Ethnicity:</strong> ${p.maori_eth_pct.toFixed(1)}% / <strong>Māori Descent:</strong> ${p.maori_desc_pct.toFixed(1)}%</div>
-            <div class="summary-line">■ <strong>Workplace Employed:</strong> ${p.work_emp_total.toLocaleString()} / <strong>Commuter Flow Base:</strong> ${p.commute_base.toLocaleString()} (Internal: ${p.commute_internal.toLocaleString()}, Inflow: ${p.commute_inflow.toLocaleString()}, Inflow Rate: ${p.commute_inflow_pct.toFixed(1)}%)</div>
-            <div class="summary-line">■ <strong>Inflow Origins:</strong> ${originsHtml}</div>
-        `;
-    }
+    summaryBox.innerHTML = `
+        <!-- Top Row: 4 KPI Cards -->
+        <div class="kpi-strip">
+            <div class="kpi-card">
+                <div class="kpi-label">${isJa ? '通常居住人口' : 'Usual Resident Pop'}</div>
+                <div class="kpi-val">${p.pop_usual.toLocaleString()}<span style="font-size:13px; font-weight:700; margin-left:2px;">${unitP}</span></div>
+                <div class="kpi-sub">${isJa ? '夜間人口総数' : 'Night Pop'}: <strong>${p.pop_night.toLocaleString()}${unitP}</strong></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">${isJa ? '年齢中央値' : 'Median Age'}</div>
+                <div class="kpi-val">${p.median_age.toFixed(1)}<span style="font-size:13px; font-weight:700; margin-left:2px;">${isJa ? '歳' : ' yrs'}</span></div>
+                <div class="kpi-sub">${isJa ? '生産年齢' : 'Working Age'}: <strong>${p.age_15_64_pct.toFixed(1)}%</strong></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">${isJa ? 'Māori 民族・血統' : 'Māori Share'}</div>
+                <div class="maori-bars-wrap">
+                    <div class="maori-bar-row">
+                        <div class="maori-bar-head"><span>${isJa ? '民族割合' : 'Ethnicity'}</span><span>${p.maori_eth_pct.toFixed(1)}%</span></div>
+                        <div class="maori-bar-track"><div class="maori-bar-fill" style="width:${Math.min(100, p.maori_eth_pct)}%; background:#9a8bb5;"></div></div>
+                    </div>
+                    <div class="maori-bar-row">
+                        <div class="maori-bar-head"><span>${isJa ? '血統保有率' : 'Descent'}</span><span>${p.maori_desc_pct.toFixed(1)}%</span></div>
+                        <div class="maori-bar-track"><div class="maori-bar-fill" style="width:${Math.min(100, p.maori_desc_pct)}%; background:#6b8ead;"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">${isJa ? '勤務地就業者総数' : 'Workplace Employed'}</div>
+                <div class="kpi-val">${p.work_emp_total.toLocaleString()}<span style="font-size:13px; font-weight:700; margin-left:2px;">${unitP}</span></div>
+                <div class="kpi-sub">${isJa ? '域外流入率' : 'Inflow Rate'}: <strong style="color:#b91c1c;">${p.commute_inflow_pct.toFixed(1)}%</strong> (${p.commute_inflow.toLocaleString()}${unitP})</div>
+            </div>
+        </div>
+
+        <!-- Middle Row: 2 Side-by-Side Donut Charts (Age Structure & Commuter Flow) -->
+        <div class="demo-charts-grid">
+            <div class="demo-chart-card">
+                <h4>${isJa ? '■ 年齢構造 (Age Structure)' : '■ Age Structure'}</h4>
+                <div class="demo-donut-row">
+                    ${ageDonutSvg}
+                    <div class="demo-legend-list">${ageLegendHtml}</div>
+                </div>
+            </div>
+            <div class="demo-chart-card">
+                <h4>${isJa ? '■ 通勤流動内訳 (居住地内 vs 域外流入)' : '■ Commuter Flow (Local vs Inflow)'}</h4>
+                <div class="demo-donut-row">
+                    ${commuteDonutSvg}
+                    <div class="demo-legend-list">${commuteLegendHtml}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Row: Ranked Horizontal Bar Chart of Inflow Origins -->
+        <div class="inflow-chart-card">
+            <div class="inflow-chart-header">
+                <h4>${isJa ? '■ 流入元地域（域外からの通勤流入数ランキング）' : '■ Commuter Inflow Origins (Ranked by Commuter Count)'}</h4>
+                <span class="inflow-chart-sub">${isJa ? `クリックで該当地域へ移動（計 ${p.inflow_origins ? p.inflow_origins.length : 0} 地域 / 流入計 ${p.commute_inflow.toLocaleString()}人）` : `Click any bar to inspect origin SA2 (${p.inflow_origins ? p.inflow_origins.length : 0} areas / ${p.commute_inflow.toLocaleString()} commuters)`}</span>
+            </div>
+            ${originsBarChartHtml}
+        </div>
+    `;
 
     renderPieAndTable(p.res_top5, 'pie-res-svg', 'pie-res-table');
     renderPieAndTable(p.work_top5, 'pie-work-svg', 'pie-work-table');
