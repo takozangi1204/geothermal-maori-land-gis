@@ -1,19 +1,13 @@
-# Large raw data directories (national datasets, >150MB)
-2023_census_part_1/
-2023_census_part_2/
-2023_census_work_travel/
-2023_statistical_area_2_clipped/
-
-# Scratch & temporary exported figures
+﻿# Scratch & temporary exported figures
 coordinates_finder.html
 rohe_map.html
 updated_plants.gpkg
 *.png
-*.docx
+*Maori*Land*.docx
 
 __pycache__/
 *.py[cod]
-*$py.class
+*.class
 .ipynb_checkpoints/
 
 # Scratch & IDE
@@ -28,4 +22,3 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 .DS_Store
-
