@@ -698,6 +698,156 @@
             font-size: 11.5px;
             color: #64748b;
         }
+
+        /* ==================================================================== */
+        /* RESPONSIVE DESIGN FOR IPHONE & MOBILE (Desktop Layout Unchanged)     */
+        /* ==================================================================== */
+        @media (max-width: 768px) {
+            /* App Container & Sidebar Drawer for iPhone */
+            #app-container {
+                flex-direction: column;
+                height: 100vh;
+                height: 100dvh;
+            }
+            #sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 86vw;
+                min-width: 290px;
+                max-width: 360px;
+                height: 100%;
+                z-index: 2500;
+                box-shadow: 4px 0 24px rgba(15, 23, 42, 0.45);
+                transform: translateX(0);
+                transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            #sidebar.collapsed {
+                margin-left: 0;
+                transform: translateX(-105%);
+            }
+            #sidebar-toggle {
+                top: auto;
+                bottom: 22px;
+                left: 14px !important;
+                z-index: 2400;
+                padding: 10px 16px;
+                font-size: 13.5px;
+                font-weight: 700;
+                border-radius: 24px;
+                background: #0f172a;
+                color: #ffffff;
+                border: 1.5px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            #sidebar-toggle::before {
+                content: '☰';
+                font-size: 14px;
+            }
+            #sidebar:not(.collapsed) ~ #sidebar-toggle {
+                display: none;
+            }
+            /* Backdrop overlay for closing drawer when open on mobile */
+            .sidebar-mobile-backdrop {
+                position: fixed;
+                inset: 0;
+                background: rgba(15, 23, 42, 0.55);
+                backdrop-filter: blur(2px);
+                z-index: 2450;
+                display: none;
+            }
+            #sidebar:not(.collapsed) ~ .sidebar-mobile-backdrop {
+                display: block;
+            }
+            /* Header & Content adjustments */
+            .sidebar-header {
+                padding: 12px 14px;
+            }
+            .sidebar-header h1 {
+                font-size: 13.5px;
+            }
+            .sidebar-content {
+                padding: 10px 12px 60px 12px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 6px;
+            }
+            .btn-chip {
+                padding: 5px 9px;
+                font-size: 11px;
+            }
+            /* Modal Screen iPhone Full View */
+            #plant-modal-overlay {
+                padding: 8px;
+                align-items: flex-end;
+            }
+            .plant-modal-card {
+                max-width: 100%;
+                max-height: 88vh;
+                max-height: 88dvh;
+                border-radius: 14px 14px 6px 6px;
+            }
+            .plant-modal-topbar {
+                padding: 8px 12px;
+            }
+            .plant-tabs-row {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 2px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .plant-tab-btn {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            .plant-modal-header {
+                padding: 12px 14px 10px 14px;
+            }
+            .plant-modal-header h2 {
+                font-size: 16.5px;
+            }
+            .plant-modal-body {
+                padding: 12px 14px 20px 14px;
+                font-size: 13px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .plant-spec-table td.spec-k {
+                width: 32%;
+                font-size: 12px;
+                padding: 6px 8px;
+            }
+            .plant-spec-table td.spec-v {
+                font-size: 12px;
+                padding: 6px 8px;
+            }
+            /* Floating Map Legend & Leaflet controls on iPhone */
+            .map-legend {
+                max-width: 180px !important;
+                font-size: 10.5px !important;
+                padding: 8px 10px !important;
+                bottom: 22px !important;
+                left: auto !important;
+                right: 10px !important;
+                max-height: 220px;
+                overflow-y: auto;
+            }
+            .map-legend .legend-note {
+                display: none;
+            }
+            .coord-box {
+                display: none;
+            }
+            .leaflet-control-zoom {
+                margin-top: 10px !important;
+                margin-right: 10px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -913,6 +1063,7 @@
             </div>
         </div>
     </aside>
+    <div class="sidebar-mobile-backdrop" onclick="toggleSidebar()"></div>
     <button id="sidebar-toggle" onclick="toggleSidebar()">☰ Hide Panel</button>
     <main id="map"></main>
 </div>
@@ -1542,6 +1693,16 @@ function toggleSidebar() {
     sb.classList.toggle('collapsed');
     btn.textContent = sb.classList.contains('collapsed') ? I18N.show_panel : I18N.hide_panel;
     setTimeout(() => map.invalidateSize(), 280);
+}
+
+// On mobile devices (such as iPhone <= 768px), collapse sidebar by default so map is visible
+if (window.innerWidth <= 768) {
+    const sb = document.getElementById('sidebar');
+    const btn = document.getElementById('sidebar-toggle');
+    if (sb && !sb.classList.contains('collapsed')) {
+        sb.classList.add('collapsed');
+        if (btn) btn.textContent = I18N.show_panel;
+    }
 }
 
 // Floating Legend (Bottom Left)
