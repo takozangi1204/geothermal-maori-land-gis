@@ -334,19 +334,33 @@
             background: #e2e8f0;
         }
         /* Floating Map Legend & Readout */
+        .leaflet-bottom.leaflet-left {
+            z-index: 1005 !important;
+        }
+        .leaflet-control-attribution {
+            font-size: 10px !important;
+            background: rgba(255, 255, 255, 0.78) !important;
+            padding: 1px 6px !important;
+            max-width: 60vw;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
         .map-legend {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.96);
             padding: 10px 13px;
             border-radius: 7px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.18);
             border: 1px solid #cbd5e1;
             font-size: 12px;
             line-height: 1.45;
             max-width: 295px;
+            margin-bottom: 24px !important;
+            margin-left: 12px !important;
             transition: padding 0.15s ease;
         }
         .map-legend.collapsed {
-            padding: 7px 11px;
+            padding: 7px 12px;
         }
         .legend-header {
             display: flex;
@@ -921,20 +935,26 @@
             }
             /* Floating Map Legend & Leaflet controls on iPhone */
             .map-legend {
-                max-width: 180px !important;
+                max-width: 215px !important;
                 font-size: 10.5px !important;
                 padding: 8px 10px !important;
-                bottom: 22px !important;
-                left: auto !important;
-                right: 10px !important;
+                margin-bottom: 68px !important;
+                margin-left: 12px !important;
                 max-height: 220px;
                 overflow-y: auto;
+            }
+            .map-legend.collapsed {
+                padding: 6px 10px !important;
             }
             .map-legend .legend-note {
                 display: none;
             }
             .coord-box {
                 display: none;
+            }
+            .leaflet-control-attribution {
+                max-width: 92vw;
+                font-size: 9px !important;
             }
             .leaflet-control-zoom {
                 margin-top: 10px !important;
@@ -1248,7 +1268,7 @@ L.control.scale({ position: 'bottomright', metric: true, imperial: false }).addT
 const baseMaps = {
     [I18N.bm_esri_topo]: L.tileLayer(APP_CONFIG.tileUrls.esriTopo, {
         maxZoom: 19,
-        attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+        attribution: 'Tiles &copy; Esri &mdash; Esri, TomTom, USGS, LINZ, GIS User Community'
     }),
     [I18N.bm_google_road]: L.tileLayer(APP_CONFIG.tileUrls.googleRoadmap, {
         maxZoom: 20,
