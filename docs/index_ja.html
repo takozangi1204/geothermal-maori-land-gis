@@ -1111,22 +1111,22 @@
                     </div>
                 </div>
                 <label class="layer-item">
-                    <input type="checkbox" id="toggle-geosys-overlap" class="geosys-checkbox" checked onchange="renderGeoSystemsLayer()" />
+                    <input type="checkbox" id="toggle-geosys-overlap" class="geosys-checkbox" onchange="renderGeoSystemsLayer()" />
                     <span class="swatch" style="background:rgba(168, 85, 247, 0.35); border:2px solid #7e22ce;"></span>
                     <span style="flex:1; font-weight:600; color:#581c87;">法定承認（SA）重複 — 複数和解グループ (3箇所)</span>
                 </label>
                 <label class="layer-item">
-                    <input type="checkbox" id="toggle-geosys-single" class="geosys-checkbox" checked onchange="renderGeoSystemsLayer()" />
+                    <input type="checkbox" id="toggle-geosys-single" class="geosys-checkbox" onchange="renderGeoSystemsLayer()" />
                     <span class="swatch" style="background:rgba(20, 184, 166, 0.32); border:2px solid #0f766e;"></span>
                     <span style="flex:1;">法定承認（SA）単一和解グループ (10箇所)</span>
                 </label>
                 <label class="layer-item">
-                    <input type="checkbox" id="toggle-geosys-none" class="geosys-checkbox" checked onchange="renderGeoSystemsLayer()" />
+                    <input type="checkbox" id="toggle-geosys-none" class="geosys-checkbox" onchange="renderGeoSystemsLayer()" />
                     <span class="swatch" style="background:rgba(245, 158, 11, 0.25); border:2px dashed #b45309;"></span>
                     <span style="flex:1;">非法定の関連のみ・記載なし (2箇所)</span>
                 </label>
                 <label class="layer-item" style="margin-top:4px; padding-top:5px; border-top:1px dashed #cbd5e1;">
-                    <input type="checkbox" id="toggle-geosys-labels" checked onchange="refreshGeoSystemLabels()" />
+                    <input type="checkbox" id="toggle-geosys-labels" onchange="refreshGeoSystemLabels()" />
                     <span class="swatch" style="background:#f3e8ff; border:1.5px solid #7e22ce; border-radius:8px;"></span>
                     <span style="flex:1;">地図上に地熱システム名・SA重複ステータスを表示</span>
                 </label>
@@ -2036,18 +2036,6 @@ legendControl.onAdd = function() {
         <div class="legend-row">
             <span class="swatch" style="background:#0ea5e933; border:2px dashed #0369a1;"></span>
             <span>${I18N.leg_tuwharetoa}</span>
-        </div>
-        <div class="legend-row">
-            <span class="swatch" style="background:rgba(168, 85, 247, 0.35); border:2px solid #7e22ce;"></span>
-            <span>${I18N.leg_geosys_overlap}</span>
-        </div>
-        <div class="legend-row">
-            <span class="swatch" style="background:rgba(20, 184, 166, 0.32); border:2px solid #0f766e;"></span>
-            <span>${I18N.leg_geosys_single}</span>
-        </div>
-        <div class="legend-row">
-            <span class="swatch" style="background:rgba(245, 158, 11, 0.25); border:2px dashed #b45309;"></span>
-            <span>${I18N.leg_geosys_none}</span>
         </div>
         <div class="legend-row">
             <span class="swatch-triangle"></span>
